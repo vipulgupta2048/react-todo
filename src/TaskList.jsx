@@ -23,6 +23,8 @@ export default function TaskList({listName, tasklist, taskStatus, gaslight, togg
                   }}>Delete</button>
                 </li>
               )
+            } else {
+              return ''
             }
           })}
         </ul>
