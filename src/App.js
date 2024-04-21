@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 
 export default function App() {
-  const [newTask, setNewTask] = React.useState("");
-  const [tasklist, setTasklist] = React.useState([]);
+  const [tasklist, setTasklist] = React.useState(() => {    
+    return JSON.parse(localStorage.getItem("tasklist")) || []
+  });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setNewTask("");
-    
-    if (!newTask) {
-      alert("Am I a joke to you?");
-    }
+  useEffect(() => {
+    localStorage.setItem("tasklist", JSON.stringify(tasklist));
+  }, [tasklist])
 
+  function addTodo(newTask) {
     setTasklist((currentTaskList) => {
       return [
         ...currentTaskList,
@@ -49,7 +47,7 @@ export default function App() {
   return (
     <>
       <h1>Vipul's gaslighting Todo App</h1>
-      <NewTaskForm newTask={newTask} setNewTask={setNewTask} handleSubmit={handleSubmit} />
+      <NewTaskForm onSubmit={addTodo} />
 
       {/* Todo for myself: May have overloaded this with props, wonder if it could be broken down further. */}
       <TaskList listName={"Tasks"} tasklist={tasklist} taskStatus={false} gaslight={"Set some tasks, why you like this?"} toggleTodo={toggleTodo} handleDelete={handleDelete} />
