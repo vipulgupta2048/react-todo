@@ -1,21 +1,17 @@
 import React from "react";
 
-export default function NewTaskForm({onSubmit} ) {
-    const [newTask, setNewTask] = React.useState("");
-    
-    function handleSubmit(e) {
-        e.preventDefault();
-        
-        if (!newTask) {
-            alert("Am I a joke to you?");
-            return
-        }
-        
-        onSubmit(newTask);
-        setNewTask("");
-    
+export default function NewTaskForm({ onSubmit }) {
+	const [newTask, setNewTask] = React.useState("");
 
-    }
+	function handleSubmit(e) {
+		e.preventDefault();
+		if (!newTask) {
+			alert("Am I a joke to you?");
+			return;
+		}
+		onSubmit(newTask);
+		setNewTask("");
+	}
 
 	return (
 		<form onSubmit={handleSubmit}>
