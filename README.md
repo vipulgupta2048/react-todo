@@ -1,8 +1,8 @@
 # Yet another Todo app that no one would use
 
-But, with elements of gaslighting, no CSS and vanilla ReactJS. 
+But, with elements of gaslighting, so you finish your tasks. Built under an hour, using vanilla ReactJS. 
 
-![](./preview.png)
+![](./preview.gif)
 
 Hydrating my ReactJS skills with a simple Todo app just like React does when it sees static HTML. 
 
@@ -13,8 +13,7 @@ Lessons Re-learned:
 3. Handling events 
 4. Pages, Components, Props, Children.
 5. Hooks
-6. Personal Opinions: Console logging is the best form of debugging and if you say otherwise then I can't help you
-7. Using React Developer Tools to figure out state and events.
+6. Using React Developer Tools to figure out states and events.
 
 Docs:
  
